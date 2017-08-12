@@ -40,9 +40,8 @@
 #include "cst_lexicon.h"
 #include "cst_ffeatures.h"
 #include "cmu_indic_lex.h"
-#include "../cmu_indic_lang/cmu_indic_lang.h"
+#include "cmu_indic_lang.h"
 
-extern cst_lexicon cmu_lex;
 
 static const struct cmu_indic_char cmu_indic_offset_char[128] = {
   /*000*/ {IND_IGNORE, ""},
@@ -647,6 +646,7 @@ cst_val *cmu_indic_lex_lts_function(const struct lexicon_struct *l,
     int cmu_indic_variant_deletes_word_final_schwa=0;
     const cst_val *v;
     cst_val *tmpv;
+    cst_lexicon *english_lex = cmu_lex_init();
 
     indic_variant = get_param_string(feats, "variant", "none");
 
@@ -667,7 +667,7 @@ cst_val *cmu_indic_lex_lts_function(const struct lexicon_struct *l,
     {  /* Its English like so us English Lexicon to find Phones and map
           to indic phones */
         /* printf("awb_debug cmu_indic_lex: English >%s<\n",word); */
-        english_phones = lex_lookup(&cmu_lex,word,pos,feats);
+        english_phones = lex_lookup(english_lex,word,pos,feats);
         base_phones = map_english_to_indic_phones(indic_variant,english_phones);
         delete_val(english_phones);
     }
