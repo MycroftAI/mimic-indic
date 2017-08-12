@@ -1,0 +1,15 @@
+Mimic is currently being developed and maintained by Mycroft AI, Inc.
+Mycroft AI is the company behind the Mycroft artificial intelligence
+and voice assistant platform, more info here: https://mycroft.ai
+
+The initial development of Mimic was primarily done by awb through
+the Flite project while he was traveling, perhaps the name is
+doubly appropriate as a substantial amount of the coding was
+done over 30,000ft).  During most of that time awb was funded
+by the Language Technologies Institute at Carnegie Mellon University.
+
+Kevin A. Lenzo was involved in the design, conversion techniques and
+representations for the voice distributed with Flite (as well as being
+the actual kal voice itself).
+
+The indic contribution was mainly done by Alok Parlikar.
