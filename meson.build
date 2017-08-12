@@ -4,9 +4,9 @@ build_plugin = get_option('plugin')
 
 sources = [
   'src/cmu_indic_lex/cmu_indic_lex.c',
-  'cmu_indic_lang.c',
-  'cmu_indic_phoneset.c',
-  'cmu_indic_phrasing_cart.c'
+  'src/cmu_indic_lang/cmu_indic_lang.c',
+  'src/cmu_indic_lang/cmu_indic_phoneset.c',
+  'src/cmu_indic_lang/cmu_indic_phrasing_cart.c'
 ]
 
 includes = [include_directories('include')]

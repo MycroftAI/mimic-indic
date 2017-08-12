@@ -41,7 +41,7 @@
 #include "cst_ffeatures.h"
 #include "cmu_indic_lex.h"
 #include "cmu_indic_lang.h"
-
+#include "lang/en_US/cmu_lex.h"
 
 static const struct cmu_indic_char cmu_indic_offset_char[128] = {
   /*000*/ {IND_IGNORE, ""},

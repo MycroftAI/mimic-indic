@@ -40,6 +40,7 @@
 extern "C" {
 #endif /* __cplusplus */
 
+#include "cst_regex.h"
 #include "cst_utterance.h"
 #include "cst_cart.h"
 #include "cst_val.h"
@@ -52,6 +53,9 @@ extern const cst_phoneset cmu_indic_phoneset;
 extern const cst_cart cmu_indic_phrasing_cart; 
 
 const cst_regex * const cst_rx_not_indic;
+
+void indic_plugin_init();
+void indic_plugin_exit();
 
 #ifdef __cplusplus
 } /* extern "C" */

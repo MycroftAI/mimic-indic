@@ -35,11 +35,13 @@
 /*                                                                       */
 /*************************************************************************/
 #include "mimic.h"
+#include "cst_regex.h"
 #include "cst_val.h"
 #include "cst_voice.h"
 #include "cst_lexicon.h"
 #include "cst_ffeatures.h"
 #include "cmu_indic_lang.h"
+#include "cmu_indic_lex.h"
 
 /* ./bin/compile_regexes cst_rx_not_indic "^[0-9a-zA-Z/:_'-]+$" */
 static const unsigned char cst_rx_not_indic_rxprog[] = {
@@ -162,3 +164,15 @@ void cmu_indic_lang_init(cst_voice *v)
 
     return;
 }
+
+void indic_plugin_init()
+{
+   /* Several aliases for the same language */
+   mimic_add_lang("cmu_indic_lang",cmu_indic_lang_init,cmu_indic_lex_init);
+   mimic_add_lang("indic",cmu_indic_lang_init, cmu_indic_lex_init); /* Recommended */
+}
+
+void indic_plugin_exit()
+{
+}
+
