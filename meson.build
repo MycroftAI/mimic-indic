@@ -9,7 +9,7 @@ sources = [
   'src/cmu_indic_lang/cmu_indic_phrasing_cart.c'
 ]
 
-includes = [include_directories('include')]
+includes = [include_directories('include'), include_directories('.')]
 
 # Core Dependency:
 mimiccore = dependency('ttsmimic_core', required: false)
