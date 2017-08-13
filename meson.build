@@ -12,16 +12,31 @@ sources = [
 includes = [include_directories('include')]
 
 # Core Dependency:
-mimiccore = dependency('ttsmimic_core')
-mimic_plugin_dir = mimiccore.get_pkgconfig_variable('mimic_plugin_dir')
-
-mimic_english = dependency('ttsmimic_english')
-
+mimiccore = dependency('ttsmimic_core', required: false)
+if mimiccore.found()
+  mimic_plugin_dir = mimiccore.get_pkgconfig_variable('mimic_plugin_dir')
+else
+  # We compile it:
+  mimic_core_sub = subproject('mimic-core')
+  mimiccore = mimic_core_sub.get_variable('ttsmimiccore_dep')
+  mimic_plugin_dir = mimic_core_sub.get_variable('mimic_plugin_dir')
+endif
 
 # If mimic-core does not have plugin support, disable the plugin
 if mimic_plugin_dir == ''
     build_plugin = false
 endif
+
+# English Dependency (for the lexicon)
+mimic_english = dependency('ttsmimic_english', required: false)
+if not mimic_english.found()
+  # We compile it:
+  mimic_english_sub = subproject('mimic-english')
+  mimic_english = mimic_english_sub.get_variable('ttsmimic_english_dep')
+  includes += mimic_english_sub.get_variable('includes')
+endif
+
+
 message('Build mimic-indic plugin: @0@'.format(build_plugin))
 
 
