@@ -55,7 +55,7 @@ ttsmimic_indic_lib = library('ttsmimic_indic', sources,
                              dependencies: [mimiccore, mimic_english],
                              install: true)
 
-ttsmimiclib_indic_dep = declare_dependency(link_with : ttsmimic_indic_lib, 
+ttsmimic_indic_dep = declare_dependency(link_with : ttsmimic_indic_lib, 
                                            include_directories : includes)
 
 
@@ -64,11 +64,11 @@ if build_plugin
     'ttsmimic_indic_plugin',
     ['src/mimic_indic_plugin.c'],
     include_directories : includes,
-    dependencies: [mimiccore, mimic_english, ttsmimiclib_indic_dep],
+    dependencies: [mimiccore, mimic_english, ttsmimic_indic_dep],
     install_dir: mimic_plugin_dir,
     install: true)
 
-  ttsmimiclib_indic_plugin_dep = declare_dependency(
+  ttsmimic_indic_plugin_dep = declare_dependency(
     link_with : ttsmimic_indic_plugin_lib, 
     include_directories : includes)
 endif
