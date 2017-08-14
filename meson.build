@@ -9,7 +9,7 @@ sources = [
   'src/cmu_indic_lang/cmu_indic_phrasing_cart.c'
 ]
 
-includes = [include_directories('include'), include_directories('.')]
+includes = [include_directories('include')]
 
 # Core Dependency:
 mimiccore = dependency('ttsmimic_core', required: false)
@@ -41,14 +41,6 @@ message('Build mimic-indic plugin: @0@'.format(build_plugin))
 
 
 indic_header_subdir = join_paths('ttsmimic', 'lang', 'indic')
-
-conf_data = configuration_data()
-conf_data.set('ENABLE_LANG_INDIC_BUILTIN', not build_plugin)
-
-mimic_indic_config_h = configure_file(output : 'mimic_indic_config.h',
-                                        configuration : conf_data, install: true,
-                                        install_dir : join_paths(get_option('includedir'), indic_header_subdir))
-sources += [mimic_indic_config_h]
 
 ttsmimic_indic_lib = library('ttsmimic_indic', sources,
                              include_directories : includes,

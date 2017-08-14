@@ -33,13 +33,9 @@
  * 
  */
 
-#include "mimic_indic_config.h"
 #include "cmu_indic_lang.h"
 #include "cmu_indic_lex.h"
-#include "mimic.h"
-
-#ifndef ENABLE_LANG_INDIC_BUILTIN
 #include "cst_plugins.h"
+
 mimic_plugin_t mimic_plugin = { "mimic-indic", 0, &indic_plugin_init, &indic_plugin_exit};
-#endif
 
