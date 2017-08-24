@@ -8,24 +8,26 @@ It is based on the `cmu_indic_lang` flite module and the `cmu_indic_lex` lexicon
 
 ## Dependencies:
 
-### Mimic core:
-
-Install mimic-core from https://github.com/zeehio/mimic-core first.
-
-### Meson and ninja
-
-#### Windows
+### Windows
 
 - [python3](https://www.python.org/downloads/windows/)
 - [ninja](https://github.com/ninja-build/ninja/releases)
 - meson: `pip install meson` (once python is installed)
 
-#### OSX:
+### OSX:
 
-brew install python3 ninja pkg-config
-pip3 install --user meson
+- Install *Brew*
+  ```
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  ```
 
-#### Linux
+- Install *python3*, *ninja*, *pkg-config*
+  ```
+  brew install python3 ninja pkg-config
+  pip3 install --user meson
+  ```
+
+### Linux
 
 ##### On Debian/Ubuntu
 ```
@@ -48,7 +50,7 @@ If mimic-core has been installed to a custom prefix, please export the pkg-confi
 
 - `export PKG_CONFIG_PATH="/path/to/mimic-core/prefix/lib/x86_64-linux-gnu/pkgconfig"`
 
-Then build and install mimic-english:
+Then build and install:
 
 - `meson builddir --prefix="/path/to/mimic-core/prefix/"`
 - `ninja -C builddir test`

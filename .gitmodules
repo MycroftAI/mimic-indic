@@ -1,6 +1,16 @@
-[submodule "subprojects/mimic-core"]
-	path = subprojects/mimic-core
-	url = https://github.com/zeehio/mimic-core.git
 [submodule "subprojects/mimic-english"]
 	path = subprojects/mimic-english
-	url = https://github.com/zeehio/mimic-english.git
+	url = https://github.com/MycroftAI/mimic-english.git
+	branch = development
+[submodule "subprojects/mimic-core"]
+	path = subprojects/mimic-core
+	url = https://github.com/MycroftAI/mimic-core.git
+	branch = development
+[submodule "subprojects/HTSEngine"]
+	path = subprojects/HTSEngine
+	url = https://github.com/MycroftAI/htsengine_meson.git
+	branch = master
+[submodule "subprojects/pcre2"]
+	path = subprojects/pcre2
+	url = https://github.com/MycroftAI/pcre2_meson.git
+	branch = 10.23
